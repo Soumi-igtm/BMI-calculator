@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[300],
       body: Center(
         // child: GestureDetector(
         //   onTap: () {
@@ -130,19 +130,44 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildButton(String buttonText) {
-    return Expanded(
-      child: OutlineButton(
-          padding: const EdgeInsets.all(24.0),
-          child: Text(
-            buttonText,
-            style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+    return InkWell(
+      onTap: () => buttonPressed(buttonText),
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 8),
+          // padding: const EdgeInsets.all(8.0),
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(            
+            // color: Colors.grey[200],
+            // borderRadius: BorderRadius.circular(15),
+            // boxShadow: [
+            //   BoxShadow(
+            //     offset: Offset(-2, -2),
+            //     color: Colors.white,
+            //     spreadRadius: 2,
+            //     blurRadius: 12
+            //   ),
+            //   BoxShadow(
+            //     offset: Offset(2, 2),
+            //     color: Colors.grey[500]!,
+            //     spreadRadius: 2,
+            //     blurRadius: 12
+            //   ),
+            // ]
           ),
-          onPressed: () => buttonPressed(buttonText)),
+          child: Center(
+            child: Text(
+              buttonText,
+              style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            ),
+          ),          
+      )
     );
   }
 
   Widget buildAlpha(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
         appBar: AppBar(
           title: Text(widget.title),
         ),
@@ -161,33 +186,43 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Divider(),
             ),
             Column(children: [
-              Row(children: [
-                buildButton("7"),
-                buildButton("8"),
-                buildButton("9"),
-                buildButton("/")
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildButton("7"),
+                  buildButton("8"),
+                  buildButton("9"),
+                  buildButton("/")
               ]),
-              Row(children: [
-                buildButton("4"),
-                buildButton("5"),
-                buildButton("6"),
-                buildButton("X")
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildButton("4"),
+                  buildButton("5"),
+                  buildButton("6"),
+                  buildButton("X")
               ]),
-              Row(children: [
-                buildButton("1"),
-                buildButton("2"),
-                buildButton("3"),
-                buildButton("-")
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildButton("1"),
+                  buildButton("2"),
+                  buildButton("3"),
+                  buildButton("-")
               ]),
-              Row(children: [
-                buildButton("."),
-                buildButton("0"),
-                buildButton("00"),
-                buildButton("+")
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildButton("."),
+                  buildButton("0"),
+                  buildButton("00"),
+                  buildButton("+")
               ]),
-              Row(children: [
-                buildButton("CLEAR"),
-                buildButton("="),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildButton("CLEAR"),
+                  buildButton("="),
               ])
             ])
           ],
